@@ -35,7 +35,7 @@ function App() {
             path="/home-one"
             element={<Navigate to={"/react-templates/edumim"} />}
           />
-          <Route path="/react-templates/edumim" element={<HomeOne />} />
+          <Route path="/react-templates/edumim" element={<HomeThree />} />
           <Route
             path="/react-templates/edumim/home-two"
             element={<HomeTwo />}

@@ -13,6 +13,7 @@ import Footer from "../Footer";
 import CourseSection from "../HomeThreeComponents/CourseSection";
 import Counter from "../HomeTwoComponents/Counter";
 import Feature from "../Feature";
+import Testimonials from "../Testimonials";
 function HomeThree() {
   useEffect(() => {
     document.documentElement.scrollTop = 0;
@@ -24,13 +25,14 @@ function HomeThree() {
       {/* <Brands /> */}
       <About />
       {/* <Feature /> */}
-      <Counter/>
-      {/* <CourseSection /> */}
+      {/* <Counter/> */}
+      <Testimonials />
+      <CourseSection />
       {/* <Team />
       <Testimonial /> */}
       {/* <CourseBlock />
       <Accordion /> */}
-      <BlogArticle />
+      {/* <BlogArticle /> */}
       <Event />
       <Footer />
     </>

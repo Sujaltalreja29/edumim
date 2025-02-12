@@ -41,9 +41,9 @@ const SingleNews = ({ data }) => {
             alt={title}
             className="w-full h-40 object-cover"
           />
-          <span className="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm">
+          {/* <span className="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm">
             {category}
-          </span>
+          </span> */}
         </div>
         <div className="p-4">
           <h3 className="text-lg font-bold mb-2 hover:text-primary cursor-pointer line-clamp-2">
@@ -137,7 +137,7 @@ const NewsSection = () => {
   return (
     <div className="section-padding bg-[url('../images/all-img/section-bg-11.png')] bg-cover bg-no-repeat">
       <div className="container">
-        <div className="flex items-center flex-wrap flex-y-4 mb-8">
+        <div className="flex items-center flex-wrap flex-y-4">
           <div className="flex-1">
             <div className="mini-title">Latest Updates</div>
             <div className="column-title">

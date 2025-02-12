@@ -22,7 +22,7 @@ const Header = () => {
         ref={scrollNav}
       >
         <div className={`main-header py-5 ${scrollNav.current?.classList.contains('rt-sticky-active') ? 'py-3' : 'py-5'}`}>
-          <div className=" mx-auto px-4">
+          <div className="mx-auto px-4">
             <div className="flex items-center">
               <Link
                 to={"/react-templates/edumim"}
@@ -118,4 +118,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Header;  

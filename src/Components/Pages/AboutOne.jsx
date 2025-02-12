@@ -16,9 +16,9 @@ const AboutOne = () => {
       <PageBanner title={"About Us"} pageTitle="About Us" num={1} />
       <About />
       <Feature />
-      <Counter />
+      {/* <Counter /> */}
       <Testimonials />
-      <Team />
+      {/* <Team /> */}
       <Accordion />
       <Footer />
     </>

@@ -1,6 +1,6 @@
 import React from "react";
 import { about5, h, videoIcon, whiteWebIcon } from "../../constant/images";
-import image from '../../assets/images/banner/image.png'
+import image from '../../assets/images/banner/principal.jpg'
 const About = () => {
   return (
     <div className="about-area  section-padding-top pb-16 relative z-[1]">
@@ -10,13 +10,13 @@ const About = () => {
       <div className="container">
         <div className="grid grid-cols-12 xl:gap-[70px] lg:gap-10 gap-6">
           <div className="xl:col-span-7 lg:col-span-6 col-span-12">
-            <img src={image} alt="Eror" className="img-fluid" />
+            <img src={`https://cathedral-school.com/wp-content/uploads/2016/05/P-1b.jpg`} alt="Eror" className="img-fluid" />
           </div>
           <div className="xl:col-span-5 lg:col-span-6 col-span-12 ">
             <div className="mini-title">Principal's Message</div>
             <h4 className="column-title ">
-              You Can Learn Anything, Anytime From{" "}
-              <span className="shape-bg">Anywhere</span>
+            The Place Where You Can{" "}
+              <span className="shape-bg">Achieve</span>
             </h4>
             <div>
               There are many variations of passages of Lorem Ipsum available,
@@ -31,10 +31,10 @@ const About = () => {
                 </div>
                 <div className="flex-1">
                   <h4 className=" text-xl mb-1">
-                  Mission
+                  Our Mission
                   </h4>
                   <div>
-                  To provide a holistic and inclusive education that nurtures academic excellence, critical thinking, and lifelong learning.
+                  There are many variations of passages of the Lorem Ipsum available.
                   </div>
                 </div>
               </li>
@@ -46,10 +46,10 @@ const About = () => {
                 </div>
                 <div className="flex-1">
                   <h4 className=" text-xl mb-1">
-                  Vision
+                  Our Vision
                   </h4>
                   <div>
-                  To be a leading institution that empowers students to become responsible global citizens through innovation and integrity.
+                  There are many variations of passages of the Lorem Ipsum available.
                   </div>
                 </div>
               </li>

@@ -4,7 +4,7 @@ import { courseData } from "../../constant/dummyData";
 import { file2, review, user2 } from "../../constant/images";
 const Courses = () => {
   return (
-    <div className=" section-padding bg-[url('../images/all-img/section-bg-7.png')] bg-cover bg-no-repeat bg-center">
+    <div className=" section-padding bg-[url('../images/all-img/section-bg-2.png')] bg-cover bg-center">
       <div className="container">
         <div className="text-center">
           <div className="mini-title">Featured Courses</div>

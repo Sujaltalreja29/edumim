@@ -4,7 +4,7 @@ import testiLeft from "../assets/images/all-img/testi-left.png";
 
 const Testimonials = () => {
   return (
-    <div className=" section-padding bg-[url('../images/all-img/section-bg-16.png')] bg-cover  bg-no-repeat lg:mt-[136px]">
+    <div className=" section-padding bg-[url('../images/all-img/section-bg-13.png')] bg-cover  bg-no-repeat lg:mt-[136px]">
       <div className="container lg:-mt-[250px] xl:pb-[136px] lg:pb-20 pb-10">
         <div
           className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[30px] bg-white shadow-box14 rounded-md
@@ -47,7 +47,7 @@ const Testimonials = () => {
           </div>
         </div>
       </div>
-      <div className="container">
+      {/* <div className="container">
         <div className="grid grid-cols-12 lg:gap-10 gap-6 ">
           <div className="xl:col-span-7 lg:col-span-6 col-span-12">
             <img src={testiLeft} alt="" draggable="false" />
@@ -72,7 +72,7 @@ const Testimonials = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

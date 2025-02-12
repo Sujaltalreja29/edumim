@@ -2,10 +2,9 @@ import { Tab } from "@headlessui/react";
 import React, { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { activityData, schoolActivities, achievements, sports, communityService, olympiad, cbseActivities } from "../constant/dummyData";
-import { clock, file, review, star } from "../constant/images";
 
 const FilteredCourse = ({ classNameForTabOne, classNameForTabTwo, page }) => {
-  const [selectedFilter, setSelectedFilter] = useState("all");
+  const [sortOrder, setSortOrder] = useState("default");
 
   const schoolData = [
     { category: "Curricular", data: activityData },
@@ -20,30 +19,34 @@ const FilteredCourse = ({ classNameForTabOne, classNameForTabTwo, page }) => {
   const curr_data = schoolData.filter((item) => item.category === page);
   const allCourseData = curr_data[0].data;
 
-  // Dynamically generate filter options from the data
-  const filterOptions = useMemo(() => {
-    const uniquePosts = [...new Set(allCourseData.map(item => item.post))];
-    return [
-      { value: "all", label: "All Activities" },
-      ...uniquePosts.map(post => ({
-        value: post.toLowerCase(),
-        label: post.charAt(0).toUpperCase() + post.slice(1)
-      }))
-    ];
-  }, [allCourseData]);
-
-  const filteredCourseData = useMemo(() => {
-    if (selectedFilter === "all") {
-      return allCourseData;
+  const sortedCourseData = useMemo(() => {
+    let sorted = [...allCourseData];
+    
+    switch (sortOrder) {
+      case "a-z":
+        return sorted.sort((a, b) => a.title.localeCompare(b.title));
+      case "z-a":
+        return sorted.sort((a, b) => b.title.localeCompare(a.title));
+      case "newest":
+        return sorted.sort((a, b) => new Date(b.date) - new Date(a.date));
+      case "oldest":
+        return sorted.sort((a, b) => new Date(a.date) - new Date(b.date));
+      default:
+        return sorted;
     }
-    return allCourseData.filter(
-      (item) => item.post.toLowerCase() === selectedFilter.toLowerCase()
-    );
-  }, [selectedFilter, allCourseData]);
+  }, [sortOrder, allCourseData]);
 
   const listIcon = [
     "clarity:grid-view-line",
     "ant-design:unordered-list-outlined",
+  ];
+
+  const sortOptions = [
+    { value: "default", label: "Default Order" },
+    { value: "a-z", label: "A to Z" },
+    { value: "z-a", label: "Z to A" },
+    { value: "newest", label: "Newest First" },
+    { value: "oldest", label: "Oldest First" },
   ];
 
   return (
@@ -66,16 +69,16 @@ const FilteredCourse = ({ classNameForTabOne, classNameForTabTwo, page }) => {
               </Tab>
             ))}
           </Tab.List>
-          <span>Showing {filteredCourseData.length} activities</span>
+          <span>Showing {sortedCourseData.length} activities</span>
         </div>
         <div className="flex-0">
           <div className="min-w-[272px]">
             <select 
-              value={selectedFilter}
-              onChange={(e) => setSelectedFilter(e.target.value)}
+              value={sortOrder}
+              onChange={(e) => setSortOrder(e.target.value)}
               className="w-full h-[60px] border border-gray-200 rounded px-6 focus:border-primary focus:ring-0"
             >
-              {filterOptions.map((option) => (
+              {sortOptions.map((option) => (
                 <option key={option.value} value={option.value}>
                   {option.label}
                 </option>
@@ -87,7 +90,7 @@ const FilteredCourse = ({ classNameForTabOne, classNameForTabTwo, page }) => {
       <Tab.Panels as="div" id="tabs-content">
         <Tab.Panel as="div" id="tab1" className="tab-content">
           <div className={classNameForTabOne}>
-            {filteredCourseData.map((item, index) => (
+            {sortedCourseData.map((item, index) => (
               <Link
                 className="bg-white shadow-box2 rounded-[8px] transition duration-100 hover:shadow-sm"
                 to={"/react-templates/edumim/single-course"}
@@ -105,11 +108,12 @@ const FilteredCourse = ({ classNameForTabOne, classNameForTabTwo, page }) => {
                 </div>
                 <div className="course-content p-8">
                   <h4 className="text-xl mb-3 font-bold">{item.title}</h4>
+                  <p>{item.date}</p>
                 </div>
               </Link>
             ))}
           </div>
-          {filteredCourseData.length > 0 && (
+          {sortedCourseData.length > 0 && (
             <div className="text-center pt-14">
               <a
                 href="#"
@@ -125,7 +129,7 @@ const FilteredCourse = ({ classNameForTabOne, classNameForTabTwo, page }) => {
         </Tab.Panel>
         <Tab.Panel id="tab2" className="tab-content">
           <div className={classNameForTabTwo}>
-            {filteredCourseData.map((item, index) => (
+            {sortedCourseData.map((item, index) => (
               <Link
                 className="bg-white rounded-[8px] transition shadow-box7 duration-150 border-b-4 hover:border-primary border-transparent hover:shadow-box6 flex p-8 space-x-6"
                 to={"/react-templates/edumim/single-course"}
@@ -153,7 +157,7 @@ const FilteredCourse = ({ classNameForTabOne, classNameForTabTwo, page }) => {
               </Link>
             ))}
           </div>
-          {filteredCourseData.length > 0 && (
+          {sortedCourseData.length > 0 && (
             <div className="text-center pt-14">
               <a
                 href="#"

@@ -6,7 +6,7 @@ const About = () => {
       <div className="container">
         <div className="grid grid-cols-12 gap-[30px]">
           <div className="xl:col-span-7 lg:col-span-6 col-span-12">
-            <img src={about3} alt="" className=" block w-full" />
+            <img src={`https://th.bing.com/th/id/OIP.mNOdkhl-S3Ma7vTUF-FMKAHaE2?w=260&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7`} alt="" className=" block w-full" />
           </div>
           <div className="xl:col-span-5 lg:col-span-6 col-span-12">
             <div className="mini-title">About Edumim</div>
