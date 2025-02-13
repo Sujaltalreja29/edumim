@@ -42,7 +42,7 @@ const Header = () => {
                       <a href="#">About</a>
                       <ul className="sub-menu">
                         <li><Link to={"/react-templates/edumim/about"}>About Us</Link></li>
-                        <li><Link to={"/react-templates/edumim/about-two"}>Affiliation</Link></li>
+                        <li><Link to={"/react-templates/edumim/affiliation"}>Affiliation</Link></li>
                         <li><Link to={"/react-templates/edumim/instructor"}>Infrastructure</Link></li>
                         <li><Link to={"/react-templates/edumim/instructor-two"}>Admission</Link></li>
                         <li><Link to={"/react-templates/edumim/instructor-details"}>Principal's Message</Link></li>

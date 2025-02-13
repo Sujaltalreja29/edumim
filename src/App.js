@@ -27,6 +27,7 @@ import SingleCourse from "./Components/Pages/SingleCourse";
 import Gallery from "./Components/Pages/Gallery";
 import NoticePage from "./Components/Pages/Notice";
 import Thanks from "./Components/Pages/Thanks";
+import Affiliation from "./Components/Pages/Affiliation";
 
 function App() {
   return (
@@ -63,6 +64,10 @@ function App() {
           <Route
             path="/react-templates/edumim/instructor-details"
             element={<InstructorDetails />}
+          />
+          <Route
+            path="/react-templates/edumim/affiliation"
+            element={<Affiliation />}
           />
           <Route path="/react-templates/edumim/event" element={<Event />} />
           <Route
