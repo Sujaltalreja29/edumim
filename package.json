@@ -2,7 +2,7 @@
   "name": "edumim",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://bestwpware.com/react-templates/edumim/",
+  "homepage": "https://edumim-ashen.vercel.app/",
   "dependencies": {
     "@emailjs/browser": "^3.10.0",
     "@headlessui/react": "^1.7.7",
