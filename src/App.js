@@ -31,7 +31,7 @@ import Affiliation from "./Components/Pages/Affiliation";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/react-templates/edumim">
       <div className="font-gilroy font-medium text-gray text-lg leading-[27px]">
         <Routes>
           <Route
