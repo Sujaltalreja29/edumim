@@ -37,6 +37,7 @@ const SingleNews = ({ data }) => {
       <div className="bg-white rounded-lg shadow-lg overflow-hidden h-full">
         <div className="relative">
           <img 
+            id="news"
             src={img} 
             alt={title}
             className="w-full h-40 object-cover"

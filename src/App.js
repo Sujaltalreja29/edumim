@@ -24,6 +24,8 @@ import InstructorOne from "./Components/Pages/InstructorOne";
 import InstructorTwo from "./Components/Pages/InstructorTwo";
 import SingleBlog from "./Components/Pages/SingleBlog";
 import SingleCourse from "./Components/Pages/SingleCourse";
+import Gallery from "./Components/Pages/Gallery";
+import NoticePage from "./Components/Pages/Notice";
 import Thanks from "./Components/Pages/Thanks";
 
 function App() {
@@ -91,6 +93,14 @@ function App() {
           <Route
             path="/react-templates/edumim/single-blog"
             element={<SingleBlog />}
+          />
+          <Route
+            path="/react-templates/edumim/gallery"
+            element={<Gallery/>}
+          />
+          <Route
+            path="/react-templates/edumim/notice"
+            element={<NoticePage/>}
           />
           <Route
             path="/react-templates/edumim/contacts"
