@@ -31,17 +31,17 @@ import Affiliation from "./Components/Pages/Affiliation";
 
 function App() {
   return (
-    <BrowserRouter basename="/react-templates/edumim">
+    <BrowserRouter>
       <div className="font-gilroy font-medium text-gray text-lg leading-[27px]">
         <Routes>
           <Route
-            path="/home-one"
+            path="/"
             element={<Navigate to={"/react-templates/edumim"} />}
           />
           <Route path="/react-templates/edumim" element={<HomeThree />} />
           <Route
             path="/react-templates/edumim/home-two"
-            element={<HomeTwo />}
+            element={<HomeThree />}
           />
           <Route
             path="/"
