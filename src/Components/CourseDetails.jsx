@@ -38,7 +38,7 @@ import {
   cmnt2,
 } from "../constant/images";
 
-const CourseDetails = () => {
+const   CourseDetails = () => {
   return (
     <div className="nav-tab-wrapper tabs  section-padding">
       <div className="container">

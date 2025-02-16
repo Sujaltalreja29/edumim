@@ -24,13 +24,13 @@ const Header = () => {
         ref={scrollNav}
       >
        <div className="main-header py-6">
-  <div className="py-5">
+  <div className="container">
     <div className="flex items-center justify-between">
       <Link
         to={"/react-templates/edumim"}
         className="ml-10 brand-logo flex-none lg:mr-10 md:w-auto max-w-[120px]"
       >
-        <img id="specific-image" src={logo} alt="logo"/>
+        <img src={logo} alt="logo"/>
       </Link>
       <div className="flex items-center flex-1">
                 <div className="flex-1 main-menu relative mr-[74px]">
@@ -43,19 +43,19 @@ const Header = () => {
                       <ul className="sub-menu">
                         <li><Link to={"/react-templates/edumim/about"}>About Us</Link></li>
                         <li><Link to={"/react-templates/edumim/affiliation"}>Affiliation</Link></li>
-                        <li><Link to={"/react-templates/edumim/instructor"}>Infrastructure</Link></li>
-                        <li><Link to={"/react-templates/edumim/instructor-two"}>Admission</Link></li>
+                        <li><Link to={"/react-templates/edumim/infrastructure"}>Infrastructure</Link></li>
+                        <li><Link to={"/react-templates/edumim/admission"}>Admission</Link></li>
                         <li><Link to={"/react-templates/edumim/instructor-details"}>Principal's Message</Link></li>
-                        <li><Link to={"/react-templates/edumim/event"}>Mandatory Disclosure</Link></li>
+                        <li><Link to={"/react-templates/edumim/mandatory"}>Mandatory Disclosure</Link></li>
                       </ul>
                     </li>
                     <li className="menu-item-has-children">
                       <a href="#">Administration</a>
                       <ul className="sub-menu">
                         <li><Link to={"/react-templates/edumim/courses"}>Staff Details</Link></li>
-                        <li><Link to={"/react-templates/edumim/courses-sidebar"}>School Committee</Link></li>
-                        <li><Link to={"/react-templates/edumim/single-course"}>Student Enroll</Link></li>
-                        <li><Link to={"/react-templates/edumim/single-course"}>Fee and Scholarship</Link></li>
+                        <li><Link to={"/react-templates/edumim/committee"}>School Committee</Link></li>
+                        <li><Link to={"/react-templates/edumim/enrollment"}>Student Enroll</Link></li>
+                        <li><Link to={"/react-templates/edumim/fees"}>Fee and Scholarship</Link></li>
                         <li><Link to={"/react-templates/edumim/single-course"}>Teachers Training</Link></li>
                         <li><Link to={"/react-templates/edumim/single-course"}>TC Sample</Link></li>
                       </ul>
@@ -63,11 +63,11 @@ const Header = () => {
                     <li className="menu-item-has-children">
                       <a href="#">Academics</a>
                       <ul className="sub-menu">
-                        <li><Link to={"/react-templates/edumim/blog-standard"}>School Curriculum</Link></li>
-                        <li><Link to={"/react-templates/edumim/single-blog"}>List of Books</Link></li>
+                        <li><Link to={"/react-templates/edumim/school-curriculum"}>School Curriculum</Link></li>
+                        <li><Link to={"/react-templates/edumim/courses-sidebar"}>List of Books</Link></li>
                         <li><Link to={"/react-templates/edumim/single-blog"}>School at Glance</Link></li>
-                        <li><Link to={"/react-templates/edumim/single-blog"}>Holidays List</Link></li>
-                        <li><Link to={"/react-templates/edumim/single-blog"}>CBSE Result</Link></li>
+                        <li><Link to={"/react-templates/edumim/calender"}>Holidays List</Link></li>
+                        <li><Link to={"/react-templates/edumim/result"}>CBSE Result</Link></li>
                       </ul>
                     </li>
                     <li className="menu-item-has-children">
@@ -80,14 +80,20 @@ const Header = () => {
                         <li><Link to={"/react-templates/edumim/community"}>Community Services</Link></li>
                         <li><Link to={"/react-templates/edumim/sports"}>Sports</Link></li>
                         <li><Link to={"/react-templates/edumim/cbse"}>CBSE Activities</Link></li>
-                      </ul>
-                    </li>
-                    <li>
+                        <li>
                       <Link to={"/react-templates/edumim/gallery"}>Gallery</Link>
                     </li>
                     <li>
                       <Link to={"/react-templates/edumim/notice"}>Notice</Link>
+                    </li> 
+                      </ul>
                     </li>
+                    {/* <li>
+                      <Link to={"/react-templates/edumim/gallery"}>Gallery</Link>
+                    </li>
+                    <li>
+                      <Link to={"/react-templates/edumim/notice"}>Notice</Link>
+                    </li> */}
                     <li>
                       <Link to={"/react-templates/edumim/contacts"}>Contact Us</Link>
                     </li>

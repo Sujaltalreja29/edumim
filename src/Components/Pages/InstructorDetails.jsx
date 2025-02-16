@@ -9,7 +9,7 @@ const InstructorDetails = () => {
     <>
       <Header />
       <PageBanner
-        title={"About Instructor"}
+        title={"About Principal"}
         pageTitle={"Team Member"}
         num={1}
       />

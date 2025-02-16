@@ -28,6 +28,15 @@ import Gallery from "./Components/Pages/Gallery";
 import NoticePage from "./Components/Pages/Notice";
 import Thanks from "./Components/Pages/Thanks";
 import Affiliation from "./Components/Pages/Affiliation";
+import FeesScholarships from "./Components/Pages/Fees";
+import { SchoolCommittee } from "./Components/Pages/Committee";
+import { SchoolEnroll } from "./Components/Pages/enrollment";
+import SchoolInfrastructure from "./Components/Pages/Infrastructure";
+import AdmissionForm from "./Components/Pages/Admission";
+import CalendarPage from "./Components/Pages/Calender";
+import SchoolCurriculum from "./Components/Pages/SchoolCurriculum";
+import CBSEResults from "./Components/Pages/CBSEresult";
+import MandatoryDisclosure from "./Components/Pages/Mandatory";
 
 function App() {
   return (
@@ -66,8 +75,28 @@ function App() {
             element={<InstructorDetails />}
           />
           <Route
+            path="/react-templates/edumim/infrastructure"
+            element={<SchoolInfrastructure />}
+          />
+          <Route
             path="/react-templates/edumim/affiliation"
             element={<Affiliation />}
+          />
+          <Route
+            path="/react-templates/edumim/admission"
+            element={<AdmissionForm />}
+          />
+          <Route
+            path="/react-templates/edumim/calender"
+            element={<CalendarPage />}
+          />
+          <Route
+            path="/react-templates/edumim/result"
+            element={<CBSEResults />}
+          />
+          <Route
+            path="/react-templates/edumim/school-curriculum"
+            element={<SchoolCurriculum />}
           />
           <Route path="/react-templates/edumim/event" element={<Event />} />
           <Route
@@ -83,6 +112,9 @@ function App() {
           <Route path="/react-templates/edumim/community" element={<Community />} />
           <Route path="/react-templates/edumim/sports" element={<Sports />} />
           <Route path="/react-templates/edumim/cbse" element={<CBSE />} />
+          <Route path="/react-templates/edumim/fees" element={<FeesScholarships />} />
+          <Route path="/react-templates/edumim/committee" element={<SchoolCommittee />} />
+          <Route path="/react-templates/edumim/enrollment" element={<SchoolEnroll />} />
           <Route
             path="/react-templates/edumim/courses-sidebar"
             element={<CourseSideBar />}
@@ -106,6 +138,10 @@ function App() {
           <Route
             path="/react-templates/edumim/notice"
             element={<NoticePage/>}
+          />
+          <Route
+            path="/react-templates/edumim/mandatory"
+            element={<MandatoryDisclosure/>}
           />
           <Route
             path="/react-templates/edumim/contacts"

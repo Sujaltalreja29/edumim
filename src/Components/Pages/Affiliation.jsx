@@ -1,85 +1,89 @@
-import React, { useState } from 'react';
-import Footer from "../Footer";
-import Header from "../Header";
-import img from '../../assets/images/all-img/bred.png';
+import { Disclosure } from "@headlessui/react"
+import { ChevronDown } from "lucide-react"
+import Footer from "../Footer"
+import Header from "../Header"
+import PageBanner from "../PageBanner"
 
-const Affiliation = () => {
-  // Sample affiliation data - this could be passed as a prop in a real application
-  const initialData = [
+// Affiliation Page Component
+export default function Affiliation() {
+  const affiliationData = [
     {
-      id: 1,
-      name: 'Greenwood International School',
-      board: 'CBSE',
-      affiliationNumber: '123456',
-      location: 'New Delhi, India',
-      established: '2005',
-      status: 'Active'
+      title: "Academic Affiliations",
+      description: "Educational boards and institutions we're affiliated with",
+      items: [
+        { board: "State Education Board", validUntil: "2026", level: "Primary & Secondary", status: "Active" },
+        { board: "CBSE Board", validUntil: "2025", level: "All levels", status: "Active" },
+        { board: "Cambridge International", validUntil: "2026", level: "Secondary & Higher Secondary", status: "Active" }
+      ]
     },
     {
-      id: 2,
-      name: 'Springfield Public School',
-      board: 'ICSE',
-      affiliationNumber: '654321',
-      location: 'Mumbai, India',
-      established: '2010',
-      status: 'Active'
+      title: "Sports Affiliations",
+      description: "Sports bodies and organizations",
+      items: [
+        { organization: "State Sports Council", validUntil: "2025", sports: "Athletics, Swimming", status: "Active" },
+        { organization: "National Youth Sports", validUntil: "2024", sports: "Basketball, Football", status: "Active" },
+        { organization: "District Sports Association", validUntil: "2025", sports: "Cricket, Tennis", status: "Active" }
+      ]
     },
     {
-      id: 3,
-      name: 'Harmony Academy',
-      board: 'State Board',
-      affiliationNumber: '789123',
-      location: 'Bangalore, India',
-      established: '2012',
-      status: 'Inactive'
+      title: "Cultural Affiliations",
+      description: "Cultural and arts organizations",
+      items: [
+        { organization: "State Cultural Board", validUntil: "2025", activities: "Music, Dance", status: "Active" },
+        { organization: "Youth Cultural Exchange", validUntil: "2024", activities: "Theater, Fine Arts", status: "Active" },
+        { organization: "Heritage Club Network", validUntil: "2025", activities: "Traditional Arts", status: "Active" }
+      ]
     }
-  ];
-
-  const [searchTerm, setSearchTerm] = useState('');
-  const [data] = useState(initialData);
-
-  const filteredData = data.filter(item =>
-    item.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  ]
 
   return (
     <>
       <Header />
-      <div className="breadcrumbs section-padding bg-[url('../images/all-img/bred.png')] bg-cover bg-center bg-no-repeat"></div>
-      <div className="max-w-6xl mx-auto px-4 " style={{ marginBottom: '125px' }}>
-        <div className="mb-6" style={{ marginTop: '125px' }}>
-          <h2 className="text-xl font-semibold mb-4">School Affiliation Details</h2>
-        </div>
-        <div className="overflow-x-auto">
-          <table className="w-full border-collapse bg-white">
-            <thead>
-              <tr className="bg-gray-50 text-black">
-                <th className="border p-3 text-left">School Name</th>
-                <th className="border p-3 text-left">Board</th>
-                <th className="border p-3 text-left">Affiliation Number</th>
-                <th className="border p-3 text-left">Location</th>
-                <th className="border p-3 text-left">Established</th>
-                <th className="border p-3 text-left">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredData.map((item) => (
-                <tr key={item.id} className="hover:bg-gray-50 text-black">
-                  <td className="border p-3">{item.name}</td>
-                  <td className="border p-3">{item.board}</td>
-                  <td className="border p-3">{item.affiliationNumber}</td>
-                  <td className="border p-3">{item.location}</td>
-                  <td className="border p-3">{item.established}</td>
-                  <td className="border p-3 font-medium">{item.status}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+      <PageBanner title="Affiliations" />
+      <div className="w-full max-w-4xl mx-auto p-4">
+        <div className="space-y-4">
+          {affiliationData.map((section, index) => (
+            <Disclosure as="div" key={index} className="border rounded-lg">
+              {({ open }) => (
+                <>
+                  <Disclosure.Button className="flex w-full justify-between items-center px-6 py-4 text-left bg-white hover:bg-gray-50 rounded-lg">
+                    <div>
+                      <h3 className="text-xl font-semibold">{section.title}</h3>
+                      <p className="text-sm text-gray-500">{section.description}</p>
+                    </div>
+                    <ChevronDown className={`${open ? "transform rotate-180" : ""} w-5 h-5 text-gray-500`} />
+                  </Disclosure.Button>
+                  <Disclosure.Panel className="px-6 py-4 bg-gray-50">
+                    <div className="overflow-x-auto">
+                      <table className="w-full">
+                        <thead>
+                          <tr className="border-b">
+                            <th className="py-3 text-left">Organization</th>
+                            <th className="py-3 text-left">Valid Until</th>
+                            <th className="py-3 text-left">Level/Activities</th>
+                            <th className="py-3 text-left">Status</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {section.items.map((item, itemIndex) => (
+                            <tr key={itemIndex} className="border-b last:border-0">
+                              <td className="py-3">{item.board || item.organization}</td>
+                              <td className="py-3">{item.validUntil}</td>
+                              <td className="py-3">{item.level || item.sports || item.activities}</td>
+                              <td className="py-3">{item.status}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </Disclosure.Panel>
+                </>
+              )}
+            </Disclosure>
+          ))}
         </div>
       </div>
       <Footer />
     </>
-  );
-};
-
-export default Affiliation;
+  )
+}
