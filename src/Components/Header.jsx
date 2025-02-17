@@ -52,8 +52,8 @@ const Header = () => {
                     <li className="menu-item-has-children">
                       <a href="#">Administration</a>
                       <ul className="sub-menu">
-                        <li><Link to={"/react-templates/edumim/courses"}>Staff Details</Link></li>
-                        <li><Link to={"/react-templates/edumim/committee"}>School Committee</Link></li>
+                        <li><Link to={"/react-templates/edumim/instructor-two"}>Staff Details</Link></li>
+                        <li><Link to={"/react-templates/edumim/instructor"}>School Committee</Link></li>
                         <li><Link to={"/react-templates/edumim/enrollment"}>Student Enroll</Link></li>
                         <li><Link to={"/react-templates/edumim/fees"}>Fee and Scholarship</Link></li>
                         <li><Link to={"/react-templates/edumim/single-course"}>Teachers Training</Link></li>

@@ -9,9 +9,9 @@ const InstructorTwo = () => {
   return (
     <>
       <Header />
-      <PageBanner title={"Instructor"} pageName={"Instructor"} num={2} />
+      <PageBanner title={"Staff"} pageName={"Staff-details"} />
       <Team />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <Footer />
     </>
   );

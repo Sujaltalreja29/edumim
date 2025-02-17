@@ -37,6 +37,7 @@ import CalendarPage from "./Components/Pages/Calender";
 import SchoolCurriculum from "./Components/Pages/SchoolCurriculum";
 import CBSEResults from "./Components/Pages/CBSEresult";
 import MandatoryDisclosure from "./Components/Pages/Mandatory";
+import CVUploadPage from './Components/Pages/TC'
 
 function App() {
   return (
@@ -78,6 +79,7 @@ function App() {
             path="/react-templates/edumim/infrastructure"
             element={<SchoolInfrastructure />}
           />
+
           <Route
             path="/react-templates/edumim/affiliation"
             element={<Affiliation />}
@@ -115,6 +117,7 @@ function App() {
           <Route path="/react-templates/edumim/fees" element={<FeesScholarships />} />
           <Route path="/react-templates/edumim/committee" element={<SchoolCommittee />} />
           <Route path="/react-templates/edumim/enrollment" element={<SchoolEnroll />} />
+          <Route path="/react-templates/edumim/tc" element={<CVUploadPage />} />
           <Route
             path="/react-templates/edumim/courses-sidebar"
             element={<CourseSideBar />}

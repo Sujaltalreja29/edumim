@@ -368,17 +368,28 @@ export const topicsData = [
 ];
 
 export const teamData = [
-  { img: team1, name: "Erics Widget", title: "UI/UX Designer" },
-  { img: team2, name: "Daniel Steven", title: "Developer" },
-  { img: team3, name: "Nelson Decosta", title: "Digital Marketer" },
-  { img: team4, name: "Selina Gomez", title: "UI/UX Designer" },
+  { img: team3, name: "Aryan Mehta", title: "Head Boy" },
+  { img: team2, name: "Sneha Kapoor", title: "Head Girl" },
+  { img: team3, name: "Rohan Iyer", title: "Cultural Secretary" },
+  { img: team4, name: "Ananya Verma", title: "Sports Captain" },
+  { img: team3, name: "Kabir Choudhary", title: "Discipline Captain" },
+  { img: team4, name: "Tanya Reddy", title: "Literary Club President" },
+  { img: team3, name: "Vikram Das", title: "Science Club President" },
+  { img: team4, name: "Meera Menon", title: "Social Service Club President" },
 ];
+
+
 export const instructorData = [
-  { img: team5, name: "Erics Widget", title: "UI/UX Designer" },
-  { img: team6, name: "Daniel Steven", title: "Developer" },
-  { img: team7, name: "Nelson Decosta", title: "Digital Marketer" },
-  { img: team8, name: "Selina Gomez", title: "UI/UX Designer" },
+  { img: team1, name: "Rajesh Sharma", title: "Principal" },
+  { img: team2, name: "Anita Verma", title: "Vice Principal" },
+  { img: team1, name: "Vikram Singh", title: "Mathematics Teacher" },
+  { img: team2, name: "Pooja Iyer", title: "Science Teacher" },
+  { img: team1, name: "Manoj Nair", title: "English Teacher" },
+  { img: team2, name: "Ritika Das", title: "History Teacher" },
+  { img: team1  , name: "Sandeep Chatterjee", title: "Physical Education Instructor" },
+  { img: team2, name: "Meera Joshi", title: "Librarian" },
 ];
+
 
 export const blogsData = [
   {

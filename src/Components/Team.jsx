@@ -6,9 +6,9 @@ const Team = () => {
     <div className=" section-padding">
       <div className="container">
         <div className="text-center">
-          <div className="mini-title">Team Member</div>
+          {/* <div className="mini-title">Student Committee</div> */}
           <div className="column-title ">
-            Our Expert <span className="shape-bg">Instructors</span>
+          Student Committee <span className="shape-bg"></span>
           </div>
         </div>
         <div className="grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 grid-cols-1 gap-[30px] pt-10">
