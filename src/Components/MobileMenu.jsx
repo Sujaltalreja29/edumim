@@ -55,12 +55,12 @@ const MobileMenu = ({ activeMenu, setActiveMenu }) => {
                 className="sub-menu"
                 style={showAboutMenu ? { display: "block" } : { display: "none" }}
               >
-                <li><Link to={"/react-templates/edumim/about"}>About Us</Link></li>
-                <li><Link to={"/react-templates/edumim/about-two"}>Affiliation</Link></li>
-                <li><Link to={"/react-templates/edumim/instructor"}>Infrastructure</Link></li>
-                <li><Link to={"/react-templates/edumim/instructor-two"}>Admission</Link></li>
-                <li><Link to={"/react-templates/edumim/instructor-details"}>Principal's Message</Link></li>
-                <li><Link to={"/react-templates/edumim/event"}>Mandatory Disclosure</Link></li>
+                        <li><Link to={"/react-templates/edumim/about"}>About Us</Link></li>
+                        <li><Link to={"/react-templates/edumim/affiliation"}>Affiliation</Link></li>
+                        <li><Link to={"/react-templates/edumim/infrastructure"}>Infrastructure</Link></li>
+                        <li><Link to={"/react-templates/edumim/admission"}>Admission</Link></li>
+                        <li><Link to={"/react-templates/edumim/instructor-details"}>Principal's Message</Link></li>
+                        <li><Link to={"/react-templates/edumim/mandatory"}>Mandatory Disclosure</Link></li>
               </ul>
             </li>
             <li
@@ -72,12 +72,12 @@ const MobileMenu = ({ activeMenu, setActiveMenu }) => {
                 className="sub-menu"
                 style={showAdminMenu ? { display: "block" } : { display: "none" }}
               >
-                <li><Link to={"/react-templates/edumim/courses"}>Staff Details</Link></li>
-                <li><Link to={"/react-templates/edumim/courses-sidebar"}>School Committee</Link></li>
-                <li><Link to={"/react-templates/edumim/single-course"}>Student Enroll</Link></li>
-                <li><Link to={"/react-templates/edumim/single-course"}>Fee and Scholarship</Link></li>
-                <li><Link to={"/react-templates/edumim/single-course"}>Teachers Training</Link></li>
-                <li><Link to={"/react-templates/edumim/single-course"}>TC Sample</Link></li>
+                        <li><Link to={"/react-templates/edumim/instructor-two"}>Staff Details</Link></li>
+                        <li><Link to={"/react-templates/edumim/instructor"}>School Committee</Link></li>
+                        <li><Link to={"/react-templates/edumim/enrollment"}>Student Enroll</Link></li>
+                        <li><Link to={"/react-templates/edumim/fees"}>Fee and Scholarship</Link></li>
+                        <li><Link to={"/react-templates/edumim/single-course"}>Teachers Training</Link></li>
+                        <li><Link to={"/react-templates/edumim/tc"}>TC Sample</Link></li>
               </ul>
             </li>
             <li
@@ -89,11 +89,11 @@ const MobileMenu = ({ activeMenu, setActiveMenu }) => {
                 className="sub-menu"
                 style={showAcademicsMenu ? { display: "block" } : { display: "none" }}
               >
-                <li><Link to={"/react-templates/edumim/blog-standard"}>School Curriculum</Link></li>
-                <li><Link to={"/react-templates/edumim/single-blog"}>List of Books</Link></li>
-                <li><Link to={"/react-templates/edumim/single-blog"}>School at Glance</Link></li>
-                <li><Link to={"/react-templates/edumim/single-blog"}>Holidays List</Link></li>
-                <li><Link to={"/react-templates/edumim/single-blog"}>CBSE Result</Link></li>
+                        <li><Link to={"/react-templates/edumim/school-curriculum"}>School Curriculum</Link></li>
+                        <li><Link to={"/react-templates/edumim/courses-sidebar"}>List of Books</Link></li>
+                        <li><Link to={"/react-templates/edumim/infrastructure"}>School at Glance</Link></li>
+                        <li><Link to={"/react-templates/edumim/calender"}>Holidays List</Link></li>
+                        <li><Link to={"/react-templates/edumim/result"}>CBSE Result</Link></li>
               </ul>
             </li>
             <li
@@ -105,24 +105,24 @@ const MobileMenu = ({ activeMenu, setActiveMenu }) => {
                 className="sub-menu"
                 style={showMoreMenu ? { display: "block" } : { display: "none" }}
               >
-                <li><Link to={"/react-templates/edumim/Co-Curricular"}>Co Curricular Activities</Link></li>
-                <li><Link to={"/react-templates/edumim/school-activities"}>School Activities</Link></li>
-                <li><Link to={"/react-templates/edumim/activities"}>Achievements</Link></li>
-                <li><Link to={"/react-templates/edumim/olympiad"}>Olympiad</Link></li>
-                <li><Link to={"/react-templates/edumim/community"}>Community Services</Link></li>
-                <li><Link to={"/react-templates/edumim/sports"}>Sports</Link></li>
-                <li><Link to={"/react-templates/edumim/cbse"}>CBSE Activities</Link></li>
-              </ul>
-            </li>
-            <li>
-              <Link to={"/react-templates/edumim/contacts"}>Gallery</Link>
-            </li>
-            <li>
-              <Link to={"/react-templates/edumim/contacts"}>Notice</Link>
-            </li>
-            <li>
-              <Link to={"/react-templates/edumim/contacts"}>Contact Us</Link>
-            </li>
+                        <li><Link to={"/react-templates/edumim/Co-Curricular"}>Co Curricular Activities</Link></li>
+                        <li><Link to={"/react-templates/edumim/school-activities"}>School Activities</Link></li>
+                        <li><Link to={"/react-templates/edumim/activities"}>Achievements</Link></li>
+                        <li><Link to={"/react-templates/edumim/olympiad"}>Olympiad</Link></li>
+                        <li><Link to={"/react-templates/edumim/community"}>Community Services</Link></li>
+                        <li><Link to={"/react-templates/edumim/sports"}>Sports</Link></li>
+                        <li><Link to={"/react-templates/edumim/cbse"}>CBSE Activities</Link></li>
+                        <li>
+                      <Link to={"/react-templates/edumim/gallery"}>Gallery</Link>
+                    </li>
+                    <li>
+                      <Link to={"/react-templates/edumim/notice"}>Notice</Link>
+                    </li> 
+                      </ul>
+                    </li>
+                    <li>
+                      <Link to={"/react-templates/edumim/contacts"}>Contact Us</Link>
+                    </li>
           </ul>
         </div>
         <div className="flex-none pb-4">
