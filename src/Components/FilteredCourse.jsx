@@ -93,7 +93,6 @@ const FilteredCourse = ({ classNameForTabOne, classNameForTabTwo, page }) => {
             {sortedCourseData.map((item, index) => (
               <Link
                 className="bg-white shadow-box2 rounded-[8px] transition duration-100 hover:shadow-sm"
-                to={"/react-templates/edumim/single-course"}
                 key={item.id * index}
               >
                 <div className="course-thumb h-[248px] rounded-t-[8px] relative">
@@ -107,7 +106,12 @@ const FilteredCourse = ({ classNameForTabOne, classNameForTabTwo, page }) => {
                   </span>
                 </div>
                 <div className="course-content p-8">
-                  <h4 className="text-xl mb-3 font-bold">{item.title}</h4>
+                <Link 
+                  to={`/react-templates/edumim/single-course/${item.id}`}>
+                  <h4 className="text-2xl leading-[36px] mb-4 font-bold">
+                    {item.title}
+                  </h4>
+                  </Link>
                   <p>{item.date}</p>
                 </div>
               </Link>
@@ -130,11 +134,7 @@ const FilteredCourse = ({ classNameForTabOne, classNameForTabTwo, page }) => {
         <Tab.Panel id="tab2" className="tab-content">
           <div className={classNameForTabTwo}>
             {sortedCourseData.map((item, index) => (
-              <Link
-                className="bg-white rounded-[8px] transition shadow-box7 duration-150 border-b-4 hover:border-primary border-transparent hover:shadow-box6 flex p-8 space-x-6"
-                to={"/react-templates/edumim/single-course"}
-                key={index}
-              >
+              <>
                 <div className="flex-none">
                   <div className="w-[159px] h-[159px] rounded relative">
                     <img
@@ -150,11 +150,14 @@ const FilteredCourse = ({ classNameForTabOne, classNameForTabTwo, page }) => {
                       {item.post}
                     </span>
                   </div>
+                  <Link 
+                  to={`${item.id}`}>
                   <h4 className="text-2xl leading-[36px] mb-4 font-bold">
                     {item.title}
                   </h4>
+                  </Link>
                 </div>
-              </Link>
+                </>
             ))}
           </div>
           {sortedCourseData.length > 0 && (
