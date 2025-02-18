@@ -28,6 +28,7 @@ import {
   team6,
   team7,
   team8,
+  train
 } from "./images";
 
 export const achivementCounter = [
@@ -376,6 +377,17 @@ export const teamData = [
   { img: team4, name: "Tanya Reddy", title: "Literary Club President" },
   { img: team3, name: "Vikram Das", title: "Science Club President" },
   { img: team4, name: "Meera Menon", title: "Social Service Club President" },
+];
+
+export const trainingData = [
+  { img: train, name: "Effective Classroom Management", title: "Trainer: Dr. Rajesh Sharma" },
+  { img: train, name: "Integrating Technology in Education", title: "Trainer: Anita Verma" },
+  { img: train, name: "Innovative Teaching Methods", title: "Trainer: Vikram Singh" },
+  { img: train, name: "Student Mental Health Awareness", title: "Trainer: Pooja Iyer" },
+  { img: train, name: "Inclusive Education Strategies", title: "Trainer: Manoj Nair" },
+  { img: train, name: "Enhancing Communication Skills", title: "Trainer: Ritika Das" },
+  { img: train, name: "Assessment and Evaluation Techniques", title: "Trainer: Sandeep Chatterjee" },
+  { img: train, name: "Effective Parent-Teacher Communication", title: "Trainer: Meera Joshi" }
 ];
 
 

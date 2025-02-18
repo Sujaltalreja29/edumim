@@ -125,6 +125,7 @@ import team1 from "../assets/images/all-img/team1.png";
 import team2 from "../assets/images/all-img/team2.png";
 import team3 from "../assets/images/all-img/team3.png";
 import team4 from "../assets/images/all-img/team4.png";
+import train from "../assets/images/all-img/train.png";
 import blog1 from "../assets/images/all-img/blog-1.png";
 import blog2 from "../assets/images/all-img/blog-2.png";
 import blog3 from "../assets/images/all-img/blog-3.png";
@@ -175,6 +176,7 @@ export {
   team6,
   team7,
   team8,
+  train,
   t1,
   e1,
   e2,

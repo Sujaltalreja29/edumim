@@ -155,17 +155,17 @@ const NewsSection = () => {
           </div>
         </div>
         
-        <div className="grid grid-cols-3 gap-0">
-          {filterData?.length > 0 ? (
-            filterData.map((data) => (
-              <SingleNews key={data.id} data={data} />
-            ))
-          ) : (
-            <div className="col-span-3 text-center text-xl text-gray-500">
-              No items found
-            </div>
-          )}
-        </div>
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
+
+  {filterData?.length > 0 ? (
+    filterData.map((data) => <SingleNews key={data.id} data={data} />)
+  ) : (
+    <div className="col-span-3 text-center text-xl text-gray-500">
+      No items found
+    </div>
+  )}
+</div>
+
 
         <div className="text-center mt-12">
           <a href="#" className="btn btn-primary">

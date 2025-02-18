@@ -38,6 +38,7 @@ import SchoolCurriculum from "./Components/Pages/SchoolCurriculum";
 import CBSEResults from "./Components/Pages/CBSEresult";
 import MandatoryDisclosure from "./Components/Pages/Mandatory";
 import CVUploadPage from './Components/Pages/TC'
+import Training from './Components/Pages/Training'
 
 function App() {
   return (
@@ -118,6 +119,7 @@ function App() {
           <Route path="/react-templates/edumim/committee" element={<SchoolCommittee />} />
           <Route path="/react-templates/edumim/enrollment" element={<SchoolEnroll />} />
           <Route path="/react-templates/edumim/tc" element={<CVUploadPage />} />
+          <Route path="/react-templates/edumim/training" element={<Training />} />
           <Route
             path="/react-templates/edumim/courses-sidebar"
             element={<CourseSideBar />}

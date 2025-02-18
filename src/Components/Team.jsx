@@ -1,18 +1,22 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import { teamData } from "../constant/dummyData";
-const Team = () => {
+import { teamData , trainingData } from "../constant/dummyData";
+const Team = ({train}) => {
+  let data = teamData;
+  if(train){
+    data = trainingData;
+  }
   return (
     <div className=" section-padding">
       <div className="container">
         <div className="text-center">
           {/* <div className="mini-title">Student Committee</div> */}
-          <div className="column-title ">
-          Student Committee <span className="shape-bg"></span>
+          <div className="column-title ">{train ? "Teachers Trainings"  :  "Student Committee"}
+          <span className="shape-bg"></span>
           </div>
         </div>
         <div className="grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 grid-cols-1 gap-[30px] pt-10">
-          {teamData.map((item, index) => (
+          {data.map((item, index) => (
             <div
               className=" bg-white shadow-box3 rounded-[8px] transition-all duration-100 pt-10 pb-[28px] px-6 text-center hover:shadow-box4
             border-t-4 border-transparent hover:border-secondary "
@@ -30,6 +34,7 @@ const Team = () => {
                   {item.name}
                 </h4>
                 <div>{item.title}</div>
+                {train ? "" : (
                 <ul className="space-x-4 flex justify-center pt-6">
                   <li>
                     <a
@@ -58,7 +63,7 @@ const Team = () => {
                       <iconify-icon icon="bxl:linkedin"></iconify-icon>
                     </a>
                   </li>
-                </ul>
+                </ul>)}
               </div>
             </div>
           ))}
