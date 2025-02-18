@@ -56,7 +56,7 @@ const Header = () => {
                         <li><Link to={"/react-templates/edumim/instructor"}>School Committee</Link></li>
                         <li><Link to={"/react-templates/edumim/enrollment"}>Student Enroll</Link></li>
                         <li><Link to={"/react-templates/edumim/fees"}>Fee and Scholarship</Link></li>
-                        <li><Link to={"/react-templates/edumim/single-course"}>Teachers Training</Link></li>
+                        <li><Link to={"/react-templates/edumim/training"}>Teachers Training</Link></li>
                         <li><Link to={"/react-templates/edumim/tc"}>TC Sample</Link></li>
                       </ul>
                     </li>
