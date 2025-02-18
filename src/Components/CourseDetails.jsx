@@ -39,9 +39,21 @@ import {
   cmnt2,
 } from "../constant/images";
 
-const   CourseDetails = ({id }) => {
+const   CourseDetails = ({id , page}) => {
   console.log(id)
-  const data = activityData[id-1]
+  const schoolData = [
+      { category: "Curricular", data: activityData },
+      { category: "School", data: schoolActivities },
+      { category: "Achievements", data: achievements },
+      { category: "Olympiad", data: olympiad },
+      { category: "Community", data: communityService },
+      { category: "Sports", data: sports },
+      { category: "CBSE", data: cbseActivities },
+    ];
+  
+    const curr_data = schoolData.filter((item) => item.category === page);
+    const page_data = curr_data[0].data;
+    const data = page_data[id]
   console.log(data)
   return (
     <div className="nav-tab-wrapper tabs  section-padding">
@@ -52,7 +64,7 @@ const   CourseDetails = ({id }) => {
               <div className="xl:h-[470px] h-[350px] mb-10 course-main-thumb">
                 <img
                   src={data.img}
-                  alt=""
+                  alt="error"
                   className=" rounded-md object-fut w-full h-full block"
                 />
               </div>

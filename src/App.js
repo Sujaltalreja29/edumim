@@ -125,7 +125,7 @@ function App() {
             element={<CourseSideBar />}
           />
           <Route
-            path="/react-templates/edumim/single-course/:id"
+            path="/react-templates/edumim/single-course/:page/:id"
             element={<SingleCourse />}
           />
           <Route

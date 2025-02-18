@@ -6,12 +6,12 @@ import Header from "../Header";
 import PageBanner from "../PageBanner";
 
 const SingleCourse = () => {
-  const { id } = useParams(); // Get the id from the URL
+  const { id , page } = useParams(); // Get the id from the URL
   return (
     <>
       <Header />
       <PageBanner title={`Course Details`} pageName={"Course Details"} />
-      <CourseDetails id={id} /> {/* Pass id to CourseDetails if needed */}
+      <CourseDetails id={id} page={page}/> {/* Pass id to CourseDetails if needed */}
       <Footer />
     </>
   );

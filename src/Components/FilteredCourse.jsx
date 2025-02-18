@@ -107,7 +107,7 @@ const FilteredCourse = ({ classNameForTabOne, classNameForTabTwo, page }) => {
                 </div>
                 <div className="course-content p-8">
                 <Link 
-                  to={`/react-templates/edumim/single-course/${item.id}`}>
+                  to={`/react-templates/edumim/single-course/${page}/${item.id}`}>
                   <h4 className="text-2xl leading-[36px] mb-4 font-bold">
                     {item.title}
                   </h4>
