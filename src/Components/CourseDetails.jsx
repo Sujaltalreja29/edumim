@@ -66,14 +66,15 @@ const   CourseDetails = ({id , page}) => {
                   src={data.img}
                   alt="error"
                   className=" rounded-md object-fut w-full h-full block"
+                  style={{height : "660px"}}
                 />
               </div>
-              <div className=" mb-6">
+              <div className="px-5 mb-6">
                 <span className="bg-secondary py-1 px-3 text-lg font-semibold rounded text-white ">
                   {data.post}
                 </span>
               </div>
-              <h2>{data.title}</h2>
+              <h2 style={{color : "white" , paddingLeft : "15px"}}>{data.title}</h2>
               <div
                 className="author-meta mt-6 sm:flex  lg:space-x-16 sm:space-x-5 space-y-5 
                sm:space-y-0 items-center"

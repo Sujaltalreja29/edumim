@@ -2,18 +2,50 @@ import { useState } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 import PageBanner from "../PageBanner";
+import "./AdmissionForm.css";
 
 const AdmissionForm = () => {
   const [formData, setFormData] = useState({
-    name: "",
+    // Student Information
+    firstName: "",
+    lastName: "",
+    dateOfBirth: "",
+    gender: "",
     email: "",
     phone: "",
-    grade: "",
+    address: "",
+    city: "",
+    state: "",
+    zipCode: "",
+    
+    // Academic Information
+    gradeApplying: "",
+    currentSchool: "",
+    currentGrade: "",
+    academicYear: "",
+    
+    // Parent/Guardian Information
+    parentName: "",
+    parentEmail: "",
+    parentPhone: "",
+    parentOccupation: "",
+    relationship: "",
+    
+    // Additional Information
+    hasSpecialNeeds: "",
+    specialNeedsDetails: "",
+    extracurricular: "",
+    siblingAtSchool: "",
+    siblingDetails: "",
     message: ""
   });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
   const handleSubmit = (e) => {
@@ -26,38 +58,290 @@ const AdmissionForm = () => {
       <Header />
       <PageBanner title="School Admission" />
       <div className="container">
-      <div className="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-lg">
-        <h2 className="text-2xl font-bold text-center mb-4">Admission Form</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label className="block font-semibold">Full Name</label>
-            <input type="text" name="name" value={formData.name} onChange={handleChange} required className="w-full border p-2 rounded" />
-          </div>
-          <div>
-            <label className="block font-semibold">Email</label>
-            <input type="email" name="email" value={formData.email} onChange={handleChange} required className="w-full border p-2 rounded" />
-          </div>
-          <div>
-            <label className="block font-semibold">Phone Number</label>
-            <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required className="w-full border p-2 rounded" />
-          </div>
-          <div>
-            <label className="block font-semibold">Grade Applying For</label>
-            <select name="grade" value={formData.grade} onChange={handleChange} required className="w-full border p-2 rounded">
-              <option value="">Select Grade</option>
-              <option value="Kindergarten">Kindergarten</option>
-              <option value="Grade 1">Grade 1</option>
-              <option value="Grade 2">Grade 2</option>
-              <option value="Grade 3">Grade 3</option>
-            </select>
-          </div>
-          <div>
-            <label className="block font-semibold">Additional Message</label>
-            <textarea name="message" value={formData.message} onChange={handleChange} className="w-full border p-2 rounded"></textarea>
-          </div>
-          <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Submit Application</button>
-        </form>
-      </div>
+        <div className="admission-form-wrapper">
+          <h2 className="form-title">Student Admission Form</h2>
+          
+          <form onSubmit={handleSubmit} className="admission-form">
+            <div className="form-columns">
+              {/* Column 1: Student Information */}
+              <div className="form-column">
+                <h3 className="section-title">Student Information</h3>
+                
+                <div className="form-group">
+                  <label>First Name</label>
+                  <input
+                    type="text"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                
+                <div className="form-group">
+                  <label>Last Name</label>
+                  <input
+                    type="text"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                
+                <div className="form-group">
+                  <label>Date of Birth</label>
+                  <input
+                    type="date"
+                    name="dateOfBirth"
+                    value={formData.dateOfBirth}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                
+                <div className="form-group">
+                  <label>Gender</label>
+                  <select
+                    name="gender"
+                    value={formData.gender}
+                    onChange={handleChange}
+                    required
+                  >
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                
+                <div className="form-group">
+                  <label>Email</label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                
+                <div className="form-group">
+                  <label>Phone</label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+              </div>
+
+              {/* Column 2: Academic Information */}
+              <div className="form-column">
+                <h3 className="section-title">Academic Information</h3>
+                
+                <div className="form-group">
+                  <label>Grade Applying For</label>
+                  <select
+                    name="gradeApplying"
+                    value={formData.gradeApplying}
+                    onChange={handleChange}
+                    required
+                  >
+                    <option value="">Select Grade</option>
+                    <option value="Kindergarten">Kindergarten</option>
+                    <option value="Grade 1">Grade 1</option>
+                    <option value="Grade 2">Grade 2</option>
+                    <option value="Grade 3">Grade 3</option>
+                    <option value="Grade 4">Grade 4</option>
+                    <option value="Grade 5">Grade 5</option>
+                  </select>
+                </div>
+                
+                <div className="form-group">
+                  <label>Current School</label>
+                  <input
+                    type="text"
+                    name="currentSchool"
+                    value={formData.currentSchool}
+                    onChange={handleChange}
+                  />
+                </div>
+                
+                <div className="form-group">
+                  <label>Current Grade</label>
+                  <input
+                    type="text"
+                    name="currentGrade"
+                    value={formData.currentGrade}
+                    onChange={handleChange}
+                  />
+                </div>
+                
+                <div className="form-group">
+                  <label>Academic Year</label>
+                  <select
+                    name="academicYear"
+                    value={formData.academicYear}
+                    onChange={handleChange}
+                    required
+                  >
+                    <option value="">Select Year</option>
+                    <option value="2024-2025">2024-2025</option>
+                    <option value="2025-2026">2025-2026</option>
+                  </select>
+                </div>
+              </div>
+
+              {/* Column 3: Parent/Guardian Information */}
+              <div className="form-column">
+                <h3 className="section-title">Parent/Guardian Information</h3>
+                
+                <div className="form-group">
+                  <label>Parent/Guardian Name</label>
+                  <input
+                    type="text"
+                    name="parentName"
+                    value={formData.parentName}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                
+                <div className="form-group">
+                  <label>Parent/Guardian Email</label>
+                  <input
+                    type="email"
+                    name="parentEmail"
+                    value={formData.parentEmail}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                
+                <div className="form-group">
+                  <label>Parent/Guardian Phone</label>
+                  <input
+                    type="tel"
+                    name="parentPhone"
+                    value={formData.parentPhone}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                
+                <div className="form-group">
+                  <label>Occupation</label>
+                  <input
+                    type="text"
+                    name="parentOccupation"
+                    value={formData.parentOccupation}
+                    onChange={handleChange}
+                  />
+                </div>
+                
+                <div className="form-group">
+                  <label>Relationship to Student</label>
+                  <select
+                    name="relationship"
+                    value={formData.relationship}
+                    onChange={handleChange}
+                    required
+                  >
+                    <option value="">Select Relationship</option>
+                    <option value="Father">Father</option>
+                    <option value="Mother">Mother</option>
+                    <option value="Guardian">Guardian</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            {/* Additional Information Section */}
+            <div className="additional-info">
+              <h3 className="section-title">Additional Information</h3>
+              
+              <div className="form-row">
+                <div className="form-group">
+                  <label>Does the student have any special needs?</label>
+                  <select
+                    name="hasSpecialNeeds"
+                    value={formData.hasSpecialNeeds}
+                    onChange={handleChange}
+                  >
+                    <option value="">Select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                  </select>
+                </div>
+                
+                <div className="form-group">
+                  <label>If yes, please provide details</label>
+                  <textarea
+                    name="specialNeedsDetails"
+                    value={formData.specialNeedsDetails}
+                    onChange={handleChange}
+                    rows="2"
+                  ></textarea>
+                </div>
+              </div>
+
+              <div className="form-group">
+                <label>Extracurricular activities/interests</label>
+                <textarea
+                  name="extracurricular"
+                  value={formData.extracurricular}
+                  onChange={handleChange}
+                  rows="2"
+                ></textarea>
+              </div>
+
+              <div className="form-row">
+                <div className="form-group">
+                  <label>Does the student have any siblings at our school?</label>
+                  <select
+                    name="siblingAtSchool"
+                    value={formData.siblingAtSchool}
+                    onChange={handleChange}
+                  >
+                    <option value="">Select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                  </select>
+                </div>
+                
+                <div className="form-group">
+                  <label>If yes, please provide details</label>
+                  <textarea
+                    name="siblingDetails"
+                    value={formData.siblingDetails}
+                    onChange={handleChange}
+                    rows="2"
+                  ></textarea>
+                </div>
+              </div>
+
+              <div className="form-group">
+                <label>Additional Comments</label>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows="3"
+                ></textarea>
+              </div>
+            </div>
+
+            <div className="form-actions">
+              <button type="submit" className="submit-button">
+                Submit Application
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
       <Footer />
     </>

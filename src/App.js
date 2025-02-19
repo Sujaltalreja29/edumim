@@ -39,6 +39,7 @@ import CBSEResults from "./Components/Pages/CBSEresult";
 import MandatoryDisclosure from "./Components/Pages/Mandatory";
 import CVUploadPage from './Components/Pages/TC'
 import Training from './Components/Pages/Training'
+import ClassGrid from "./Components/Topics";
 
 function App() {
   return (
@@ -122,7 +123,7 @@ function App() {
           <Route path="/react-templates/edumim/training" element={<Training />} />
           <Route
             path="/react-templates/edumim/courses-sidebar"
-            element={<CourseSideBar />}
+            element={<ClassGrid />}
           />
           <Route
             path="/react-templates/edumim/single-course/:page/:id"

@@ -34,6 +34,7 @@ const Team = ({train}) => {
                   {item.name}
                 </h4>
                 <div>{item.title}</div>
+                <div>Date: 22-02-2024</div>
                 {train ? "" : (
                 <ul className="space-x-4 flex justify-center pt-6">
                   <li>
