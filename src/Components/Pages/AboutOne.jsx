@@ -19,7 +19,7 @@ const AboutOne = () => {
       {/* <Counter /> */}
       <Testimonials />
       {/* <Team /> */}
-      <Accordion />
+      {/* <Accordion /> */}
       <Footer />
     </>
   );
