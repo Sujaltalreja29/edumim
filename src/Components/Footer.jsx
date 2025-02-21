@@ -5,7 +5,7 @@ import footerLogo from "../assets/images/logo/footer-logo.svg";
 const Footer = () => {
   const updatedDate = new Date().getFullYear();
   return (
-    <footer className="bg-black bg-[url('../images/all-img/footer-bg-1.png')] bg-cover bg-center bg-no-repeat">
+    <footer className="section-padding bg-black bg-[url('../images/all-img/footer-bg-1.png')] bg-cover bg-center bg-no-repeat">
       <div className="section-padding container">
         <div className="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3">
           <div className="single-footer">
