@@ -1,9 +1,10 @@
 "use client"
-import React, { useState } from "react";
+import React from "react";
 import Footer from "./Footer";
 import Header from "./Header";
 import PageBanner from "./PageBanner";
 import banner from '../assets/images/all-img/schoool.jpeg'
+import { jsPDF } from 'jspdf';
 
 const classData = [
   {
@@ -69,150 +70,120 @@ const classData = [
 ];
 
 const ClassGrid = () => {
-  const [flippedCards, setFlippedCards] = useState([]);
-
-  const handleCardClick = (index) => {
-    if (flippedCards.includes(index)) {
-      setFlippedCards(flippedCards.filter(i => i !== index));
-    } else {
-      setFlippedCards([...flippedCards, index]);
-    }
+  const handleDownload = (classData) => {
+    const doc = new jsPDF();
+    
+    // Add title
+    doc.setFontSize(16);
+    doc.setFont(undefined, 'bold');
+    doc.text(`${classData.class} Books List`, 20, 20);
+    
+    // Add books list
+    doc.setFontSize(12);
+    doc.setFont(undefined, 'normal');
+    classData.books.forEach((book, index) => {
+      doc.text(`${index + 1}. ${book}`, 20, 40 + (index * 10));
+    });
+    
+    // Save the PDF
+    doc.save(`${classData.class}-Books-List.pdf`);
   };
 
   return (
     <>
-          <Header />
-          <PageBanner title="Books list" pageName="" />
+      <Header />
+      <PageBanner title="Books list" pageName="" />
 
-    <div className="section-padding">
-      <div className="container">
-        {/* <div className="text-center">
-          <div className="mini-title">Explore Our Academic Programs</div>
-          <div className="column-title">
-            Choose Your <span className="shape-bg">Class</span> Level
-          </div>
-        </div> */}
-        <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-[30px] pt-10">
-          {classData.map((item, index) => (
-            <div 
-              key={index} 
-              className="card-container"
-              onClick={() => handleCardClick(index)}
-            >
-              <div className={`card ${flippedCards.includes(index) ? 'flipped' : ''}`}>
-                {/* Front of card */}
-                <div className="card-face card-front">
-                  <div className="card-content">
-                    <div className="card-icon">
-                      <img
-                        src={banner || "/placeholder.svg"}
-                        alt=""
-                        className="icon-image"
-                      />
+      <div className="section-padding">
+        <div className="container">
+          <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-[30px] pt-10">
+            {classData.map((item, index) => (
+              <div key={index} className="card-container">
+                <div className="card">
+                  <div className="card-face card-front">
+                    <div className="card-content">
+                      <div className="card-icon">
+                        <img
+                          src={banner || "/placeholder.svg"}
+                          alt=""
+                          className="icon-image"
+                        />
+                      </div>
+                      <div className="card-info">
+                        <h4 className="card-title">{item.class}</h4>
+                        <p className="card-subtitle">Required Books: {item.books.length}</p>
+                        <div className="text-center mt-4">
+                          <button 
+                            onClick={() => handleDownload(item)}
+                            className="btn btn-primary"
+                          >
+                            Download List
+                          </button>
+                        </div>
+                      </div>
                     </div>
-                    <div className="card-info">
-                      <h4 className="card-title">{item.class}</h4>
-                      <p className="card-subtitle">Required Books: {item.books.length}</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Back of card */}
-                <div className="card-face card-back">
-                  <div className="card-content">
-                    <h4 className="card-title">{item.class} Books</h4>
-                    <ul className="book-list">
-                      {item.books.map((book, bookIndex) => (
-                        <li key={bookIndex} className="book-item">
-                          {bookIndex + 1}. {book}
-                        </li>
-                      ))}
-                    </ul>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
+        <style jsx>{`
+          .card-container {
+            height: 300px;
+          }
+          .card {
+            width: 100%;
+            height: 100%;
+            position: relative;
+          }
+          .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            padding: 20px;
+          }
+          .card-front {
+            background-color: #FFE8E8;
+          }
+          .card-content {
+            text-align: center;
+          }
+          .card-icon {
+            width: 72px;
+            height: 72px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+          }
+          .icon-image {
+            width: 32px;
+            height: 32px;
+            object-fit: cover;
+          }
+          .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+          }
+          .card-subtitle {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 16px;
+          }
+          .card:hover {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+          }
+        `}</style>
       </div>
-      <style jsx>{`
-        .card-container {
-          perspective: 1000px;
-          height: 300px;
-        }
-        .card {
-          width: 100%;
-          height: 100%;
-          position: relative;
-          transition: transform 0.6s;
-          transform-style: preserve-3d;
-          cursor: pointer;
-        }
-        .card.flipped {
-          transform: rotateY(180deg);
-        }
-        .card-face {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          backface-visibility: hidden;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 8px;
-          padding: 20px;
-        }
-        .card-front {
-          background-color: #FFE8E8;
-        }
-        .card-back {
-          background-color: white;
-          transform: rotateY(180deg);
-          overflow-y: auto;
-        }
-        .card-content {
-          text-align: center;
-        }
-        .card-icon {
-          width: 72px;
-          height: 72px;
-          background-color: white;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin: 0 auto 20px;
-        }
-        .icon-image {
-          width: 32px;
-          height: 32px;
-          object-fit: cover;
-        }
-        .card-title {
-          font-size: 1.5rem;
-          font-weight: bold;
-          margin-bottom: 8px;
-        }
-        .card-subtitle {
-          font-size: 0.9rem;
-          color: #666;
-        }
-        .book-list {
-          list-style-type: none;
-          padding: 0;
-          text-align: left;
-        }
-        .book-item {
-          font-size: 0.9rem;
-          color: #333;
-          margin-bottom: 8px;
-        }
-        .card:hover {
-          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-      `}</style>
-    </div>
-    <Footer/>
+      <Footer/>
     </>
   );
 };
