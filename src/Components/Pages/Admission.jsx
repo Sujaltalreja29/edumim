@@ -53,7 +53,8 @@ const AdmissionForm = () => {
         <div className="max-w-7xl mx-auto bg-white rounded-lg shadow-lg p-8">
           
           <form onSubmit={handleSubmit}>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Main Sections Grid */}
+            <div className="form-grid">
               {/* Column 1: Student Information */}
               <div>
                 <h3 className="text-xl font-semibold mb-6">Student Information</h3>
@@ -268,7 +269,8 @@ const AdmissionForm = () => {
             <div className="mt-8">
               <h3 className="text-xl font-semibold mb-6">Additional Information</h3>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              {/* Special Needs Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
                 <div>
                   <select
                     name="hasSpecialNeeds"
@@ -282,7 +284,7 @@ const AdmissionForm = () => {
                   </select>
                 </div>
                 
-                <div>
+                <div className="md:col-span-2">
                   <textarea
                     name="specialNeedsDetails"
                     value={formData.specialNeedsDetails}
@@ -294,18 +296,22 @@ const AdmissionForm = () => {
                 </div>
               </div>
 
-              <div className="mb-6">
-                <textarea
-                  name="extracurricular"
-                  value={formData.extracurricular}
-                  onChange={handleChange}
-                  placeholder="Extracurricular activities/interests"
-                  className="from-control w-full"
-                  rows="2"
-                ></textarea>
+              {/* Extracurricular Activities */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                <div className="md:col-span-3">
+                  <textarea
+                    name="extracurricular"
+                    value={formData.extracurricular}
+                    onChange={handleChange}
+                    placeholder="Extracurricular activities/interests"
+                    className="from-control w-full"
+                    rows="2"
+                  ></textarea>
+                </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              {/* Siblings Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
                 <div>
                   <select
                     name="siblingAtSchool"
@@ -319,7 +325,7 @@ const AdmissionForm = () => {
                   </select>
                 </div>
                 
-                <div>
+                <div className="md:col-span-2">
                   <textarea
                     name="siblingDetails"
                     value={formData.siblingDetails}
@@ -331,15 +337,18 @@ const AdmissionForm = () => {
                 </div>
               </div>
 
-              <div>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Additional Comments"
-                  className="from-control w-full"
-                  rows="3"
-                ></textarea>
+              {/* Additional Comments */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="md:col-span-3">
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Additional Comments"
+                    className="from-control w-full"
+                    rows="3"
+                  ></textarea>
+                </div>
               </div>
             </div>
 
@@ -351,9 +360,24 @@ const AdmissionForm = () => {
           </form>
         </div>
       </div>
+      <style>
+        {`
+        .form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .form-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}`}
+      </style>
       <Footer />
     </>
   );
 };
 
-export default AdmissionForm; 
+export default AdmissionForm;

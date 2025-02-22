@@ -24,6 +24,7 @@ function HomeThree() {
       <Banner />
       {/* <Brands /> */}
       <About />
+      <div className="section-padding"></div>
       {/* <Feature /> */}
       {/* <Counter/> */}
       <Testimonials />

@@ -25,7 +25,7 @@ const TransferCertificate = () => {
             <div className="col-lg-8">
 
               {/* Certificate Image */}
-              <div className="mb-4">
+              <div className="mb-4 w-[70px]">
                 <img
                   src={img}
                   className="img-fluid border rounded shadow-sm"
