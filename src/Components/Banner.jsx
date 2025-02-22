@@ -4,9 +4,11 @@ import ManOne from "../assets/images/banner/man3.png";
 
 const Banner = () => {
   return (
-    <section
-      className={`xl:min-h-screen bg-[url('../images/banner/1.png')] bg-cover bg-no-repeat bg-center overflow-hidden`}
-    >
+<section
+  className={`xl:min-h-screen bg-cover bg-no-repeat bg-center overflow-hidden bg-[url('../images/banner/1.png')]`}
+>
+
+
       <div className="container relative">
         <div className="max-w-[570px] xl:pt-[297px] md:pt-20 md:pb-20 pt-28 pb-14 xl:pb-40 space-y-8">
           <h1>

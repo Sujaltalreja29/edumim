@@ -1,10 +1,47 @@
 import { Tab } from "@headlessui/react";
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { activityData, schoolActivities, achievements, sports, communityService, olympiad, cbseActivities } from "../constant/dummyData";
 
+// Custom hook for infinite scroll
+const useInfiniteScroll = (callback) => {
+  const observer = useRef();
+  const loadingRef = useRef(null);
+
+  useEffect(() => {
+    observer.current = new IntersectionObserver(
+      (entries) => {
+        const first = entries[0];
+        if (first.isIntersecting) {
+          callback();
+        }
+      },
+      { threshold: 0.1 }
+    );
+  }, [callback]);
+
+  useEffect(() => {
+    const currentElement = loadingRef.current;
+    const currentObserver = observer.current;
+
+    if (currentElement) {
+      currentObserver.observe(currentElement);
+    }
+
+    return () => {
+      if (currentElement) {
+        currentObserver.unobserve(currentElement);
+      }
+    };
+  }, [loadingRef.current]);
+
+  return loadingRef;
+};
+
 const FilteredCourse = ({ classNameForTabOne, classNameForTabTwo, page }) => {
   const [sortOrder, setSortOrder] = useState("default");
+  const [visibleItems, setVisibleItems] = useState(6);
+  const [loading, setLoading] = useState(false);
 
   const schoolData = [
     { category: "Curricular", data: activityData },
@@ -36,6 +73,18 @@ const FilteredCourse = ({ classNameForTabOne, classNameForTabTwo, page }) => {
     }
   }, [sortOrder, allCourseData]);
 
+  const loadMore = () => {
+    if (!loading && visibleItems < sortedCourseData.length) {
+      setLoading(true);
+      setTimeout(() => {
+        setVisibleItems(prev => Math.min(prev + 6, sortedCourseData.length));
+        setLoading(false);
+      }, 500);
+    }
+  };
+
+  const loadingRef = useInfiniteScroll(loadMore);
+
   const listIcon = [
     "clarity:grid-view-line",
     "ant-design:unordered-list-outlined",
@@ -49,12 +98,14 @@ const FilteredCourse = ({ classNameForTabOne, classNameForTabTwo, page }) => {
     { value: "oldest", label: "Oldest First" },
   ];
 
+  const visibleData = sortedCourseData.slice(0, visibleItems);
+
   return (
     <Tab.Group>
       <div className="flex flex-wrap gap-5 justify-center items-center mb-14">
         <div className="flex-1 flex flex-wrap gap-5 space-x-6 items-center">
           <Tab.List as="ul" id="tabs-nav" className="flex space-x-4 cata-Tbas">
-            {listIcon.map((className, key) => (
+            {/* {listIcon.map((className, key) => (
               <Tab
                 as="li"
                 className={({ selected }) => (selected ? "active" : "")}
@@ -67,9 +118,9 @@ const FilteredCourse = ({ classNameForTabOne, classNameForTabTwo, page }) => {
                   <iconify-icon icon={className}></iconify-icon>
                 </a>
               </Tab>
-            ))}
+            ))} */}
           </Tab.List>
-          <span>Showing {sortedCourseData.length} activities</span>
+          <span>Showing {visibleData.length} of {sortedCourseData.length} activities</span>
         </div>
         <div className="flex-0">
           <div className="min-w-[272px]">
@@ -90,7 +141,7 @@ const FilteredCourse = ({ classNameForTabOne, classNameForTabTwo, page }) => {
       <Tab.Panels as="div" id="tabs-content">
         <Tab.Panel as="div" id="tab1" className="tab-content">
           <div className={classNameForTabOne}>
-            {sortedCourseData.map((item, index) => (
+            {visibleData.map((item, index) => (
               <Link
                 className="bg-white shadow-box2 rounded-[8px] transition duration-100 hover:shadow-sm"
                 key={item.id * index}
@@ -106,35 +157,29 @@ const FilteredCourse = ({ classNameForTabOne, classNameForTabTwo, page }) => {
                   </span>
                 </div>
                 <div className="course-content p-8">
-                <Link 
-                  to={`/react-templates/edumim/single-course/${page}/${item.id}`}>
-                  <h4 className="text-2xl leading-[36px] mb-4 font-bold">
-                    {item.title}
-                  </h4>
+                  <Link 
+                    to={`/react-templates/edumim/single-course/${page}/${item.id}`}>
+                    <h4 className="text-2xl leading-[36px] mb-4 font-bold">
+                      {item.title}
+                    </h4>
                   </Link>
                   <p>{item.date}</p>
                 </div>
               </Link>
             ))}
           </div>
-          {sortedCourseData.length > 0 && (
-            <div className="text-center pt-14">
-              <a
-                href="#"
-                className="btn btn-primary inline-flex items-center space-x-[10px]"
-              >
-                <span>Load More</span>
-                <span className="relative top-1">
-                  <iconify-icon icon="ion:reload-outline"></iconify-icon>
-                </span>
-              </a>
+          {visibleItems < sortedCourseData.length && (
+            <div ref={loadingRef} className="text-center pt-14">
+              {loading && (
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
+              )}
             </div>
           )}
         </Tab.Panel>
         <Tab.Panel id="tab2" className="tab-content">
           <div className={classNameForTabTwo}>
-            {sortedCourseData.map((item, index) => (
-              <>
+            {visibleData.map((item, index) => (
+              <div key={item.id * index} className="flex">
                 <div className="flex-none">
                   <div className="w-[159px] h-[159px] rounded relative">
                     <img
@@ -150,27 +195,20 @@ const FilteredCourse = ({ classNameForTabOne, classNameForTabTwo, page }) => {
                       {item.post}
                     </span>
                   </div>
-                  <Link 
-                  to={`${item.id}`}>
-                  <h4 className="text-2xl leading-[36px] mb-4 font-bold">
-                    {item.title}
-                  </h4>
+                  <Link to={`${item.id}`}>
+                    <h4 className="text-2xl leading-[36px] mb-4 font-bold">
+                      {item.title}
+                    </h4>
                   </Link>
                 </div>
-                </>
+              </div>
             ))}
           </div>
-          {sortedCourseData.length > 0 && (
-            <div className="text-center pt-14">
-              <a
-                href="#"
-                className="btn btn-primary inline-flex items-center space-x-[10px]"
-              >
-                <span>Load More</span>
-                <span className="relative top-1">
-                  <iconify-icon icon="ion:reload-outline"></iconify-icon>
-                </span>
-              </a>
+          {visibleItems < sortedCourseData.length && (
+            <div ref={loadingRef} className="text-center pt-14">
+              {loading && (
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
+              )}
             </div>
           )}
         </Tab.Panel>

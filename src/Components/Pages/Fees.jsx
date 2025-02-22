@@ -57,7 +57,7 @@ export default function FeesScholarships() {
       <h2 className="text-3xl font-bold text-center mb-8"></h2>
       <div className="space-y-4">
         {feesData.map((section, index) => (
-          <Disclosure as="div" key={index} className="border solid">
+          <Disclosure as="div" key={index} className="border solid ">
             {({ open }) => (
               <>
                 <Disclosure.Button className="flex w-full justify-between items-center px-6 py-4 text-left bg-white hover:bg-gray-50">

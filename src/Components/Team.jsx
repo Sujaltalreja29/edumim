@@ -11,9 +11,6 @@ const Team = ({train}) => {
       <div className="container">
         <div className="text-center">
           {/* <div className="mini-title">Student Committee</div> */}
-          <div className="column-title ">{train ? "Teachers Trainings"  :  "Student Committee"}
-          <span className="shape-bg"></span>
-          </div>
         </div>
         <div className="grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 grid-cols-1 gap-[30px] pt-10">
           {data.map((item, index) => (

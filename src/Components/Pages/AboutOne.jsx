@@ -17,6 +17,7 @@ const AboutOne = () => {
       <About />
       <Feature />
       {/* <Counter /> */}
+      <div className="section-padding mt-12"></div>
       <Testimonials />
       {/* <Team /> */}
       {/* <Accordion /> */}
